@@ -27,7 +27,6 @@ namespace AwsS3Helper
 
 
             services.TryAddSingleton<IBlobNamingNormalizer, AwsS3BlobNamingNormalizer>();
-            services.TryAddSingleton((IServiceProvider sp) => sp.GetRequiredService<IMinioClientFactory>().CreateClient(name2));
             services.TryAddSingleton<IAwsS3Client, AwsS3Client>();
             return services;
         }

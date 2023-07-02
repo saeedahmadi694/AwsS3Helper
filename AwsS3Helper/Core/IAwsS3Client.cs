@@ -8,7 +8,13 @@ namespace AwsS3Helper.Core
 {
     public interface IAwsS3Client
     {
-        Task<bool> CreateBucketIfNotExistAsync(string bucketName);
+        Task CreateNewBucketAsync(string BucketName);
+
+        Task DeleteObject(string BucketName, string fileName);
+        Task UploadObjectAsync(string BucketName, string fileName);
+        Task UploadFileAsync(string BucketName, string fileName);
+
+
         Task UploadAsync(Stream stream, string blobName, string folderAddress = "", string? bucketName = null);
         Task UploadAsync(string fileName, string blobName, string folderAddress = "", string? bucketName = null);
         Task<Stream> DownloadAsync(string blobName, string folderAddress = "", string? bucketName = null);
